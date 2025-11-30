@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自由买卖购物网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        /* 顶部导航栏样式 */
+        .header {
+            background-color: #e6f2ff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .welcome-msg {
+            background-color: #ffffe0;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* 主体布局 */
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ddd;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-section h3 {
+            border-bottom: 2px solid #4169e1;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .sidebar-links a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+            margin-bottom: 5px;
+            padding: 5px 0;
+        }
+        
+        .sidebar-links a.external {
+            color: #1e90ff;
+        }
+        
+        /* 主要内容区域样式 */
+        .main-content {
+            width: 75%;
+            padding: 20px;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #00008b;
+            margin-bottom: 30px;
+        }
+        
+        .main-title span {
+            color: #000;
+        }
+        
+        /* 关于我们内容样式 */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .founder, .goal {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .founder h2 {
+            color: #00008B;
+        }
+        
+        .founder img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            float: left;
+            margin-right: 20px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .goal h2 {
+            color: #008080;
+        }
+        
+        .goal-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .main-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <div class="logo">
+            <h1>自由买卖</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#">关于我们</a>
+            <a href="#">商品展示</a>
+            <a href="#">网站地图</a>
+        </div>
+    </div>
+    <div class="welcome-msg">
+        欢迎您光临自由买卖！这里有最好的，品种齐全的，数量繁多的商品供您选择。
+    </div>
+    
+    <!-- 页面主体 -->
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3>网站导航</h3>
+                <div class="sidebar-links">
+                    <a href="#">首页</a>
+                    <a href="#">数码产品</a>
+                    <a href="#">大件家电</a>
+                    <a href="#">小件家电</a>
+                    <a href="#">台式机/笔记本</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>网站链接</h3>
+                <div class="sidebar-links">
+                    <a href="http://www.taobao.com" class="external" target="_blank">淘宝网</a>
+                    <a href="https://weidian.com/?userid=1619834956&share_relation=bf00fb0e247b5755_1959340216_1&wfr=BuyercopyURL" class="external" target="_blank">微店</a>
+                    <a href="https://weidian.com/?userid=1619834956&share_relation=bf00fb0e247b5755_1959340216_1&wfr=BuyercopyURL" class="external" target="_blank">微店</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>收藏排行</h3>
+                <div class="sidebar-links">
+                    <a href="#">收藏排行榜</a>
+                    <a href="#">购买排行榜</a>
+                    <a href="#">会员排行榜</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <div class="main-content">
+            <h2 class="main-title">自由买卖<span>！自由买卖2080 自由买卖！</span></h2>
+            
+            <div class="about-content">
+                <div class="founder clearfix">
+                    <h2>创始人介绍</h2>
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p5.jpg" alt="ms.李54">
+                    <div class="founder-info">
+                        <p>姓名：ms.李54</p>
+                        <p>毕业院校：北京大学计算机系</p>
+                        <p>自我介绍：毕业于北京大学计算机系，专注打造贴合学生需求的购物平台</p>
+                    </div>
+                </div>
+                
+                <div class="goal">
+                    <h2>创建目标</h2>
+                    <ol class="goal-list">
+                        <li>想帮学生党避开"高价踩雷"和"买错不实用"的坑，专门筛选性价比高、适合上课/社团/日常穿的平价好物，不用再为凑满减纠结，也能买到质量靠谱的东西。</li>
+                        <li>知道学生购物常看"是否适配校园场景"，所以做这个网站时，会标注衣服是否耐脏、背包能不能装课本、鞋子走路久了累不累，让每笔消费都贴合学生的真实需求。</li>
+                        <li>希望给学生提供"轻决策"的购物环境，没有复杂的促销套路，只有清晰的价格、真实的同学评价，还有针对不同预算的推荐，让大家不用花太多时间比价，把精力多放在学习和生活上。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
