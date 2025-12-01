@@ -18,9 +18,9 @@
             line-height: 1.6;
         }
         
-           /* 顶部导航栏样式 - 修改版 */
+        /* 顶部导航栏样式 - 修改版 */
         .header {
-            background-color:#f9e0ec;
+            background-color: #f9e0ec;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -46,7 +46,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-            .nav-links {
+        .nav-links {
             display: flex;
             gap: 20px;
         }
@@ -66,8 +66,6 @@
             border-bottom: 1px solid #ffd966;
         }
 
-    
-
         /* 页面主体布局 */
         .container {
             display: flex;
@@ -78,7 +76,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        
         
         /* 侧边栏样式 */
         .sidebar {
@@ -136,7 +133,7 @@
             margin-left: 10px;
         }
         
-        /* 关于内容样式 */
+        /* 关于内容样式 - 新增边框和底色 */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -144,14 +141,18 @@
         
         .founder {
             margin-bottom: 30px;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
+            padding: 25px;
+            background: #fff0f5; /* 浅粉色底色 */
+            border: 1px solid #ffd6e7; /* 浅粉色边框 */
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         
         .founder h2 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #333;
+            border-bottom: 1px solid #ffd6e7;
+            padding-bottom: 10px;
         }
         
         .founder img {
@@ -160,37 +161,50 @@
             border-radius: 50%;
             float: left;
             margin-right: 20px;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
         
         .founder-info {
             overflow: hidden;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #ffe6f2;
         }
         
         .founder-info p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 14px;
             color: #666;
+            line-height: 1.7;
         }
         
         .goal {
             margin-top: 30px;
+            padding: 25px;
+            background: #f8f8f8; /* 浅灰色底色 */
+            border: 1px solid #e6e6e6; /* 浅灰色边框 */
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         
         .goal h2 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #333;
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 10px;
         }
         
         .goal-list {
-            padding-left: 20px;
+            padding-left: 25px;
         }
         
         .goal-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #666;
         }
         
@@ -221,21 +235,28 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            .founder {
+                padding: 15px;
+            }
+            
+            .goal {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 顶部导航栏 - 新增Logo图片 -->
+ <!-- 顶部导航栏 - 新增Logo图片 -->
     <div class="header">
         <div class="logo">
-            <!-- 这里使用示例图片，实际使用时请替换为您的Logo图片 -->
             <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p8.jpg" class="logo-img">
             <h1>54叙素</h1>
         </div>
         <div class="nav-links">
             <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/shop.html">首页</a>
             <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/54show.html">关于我们</a>
-            <a href="#">商品展示</a>
+            <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/54shop.html">商品展示</a>
             <a href="#">网站地图</a>
         </div>
     </div>
@@ -243,7 +264,6 @@
         欢迎您光临54叙素！这里有最好的，品种齐全的，数量繁多的商品供您选择。
     </div>
 
-    
     <!-- 页面主体 -->
     <div class="container">
         <!-- 侧边栏 -->
