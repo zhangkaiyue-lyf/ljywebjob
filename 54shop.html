@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>54叙素</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #fff7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+           /* 顶部导航栏样式 - 修改版 */
+        .header {
+            background-color:#f9e0ec;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+            .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .welcome-msg {
+            background-color: #fff8e6;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 12px;
+            border-bottom: 1px solid #ffd966;
+        }
+
+    
+
+        /* 页面主体布局 */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 200px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #eee;
+            padding: 20px 0;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+        
+        .sidebar-section h3 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-links a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            padding: 5px 0;
+            font-size: 12px;
+        }
+        
+        .sidebar-links a:hover {
+            color: #ff5000;
+        }
+        
+        /* 主要内容区域样式 - 商品展示为主体 */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .main-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* 商品展示样式 - 淘宝风格 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .product-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            padding: 15px;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            color: #ebbbd7;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .product-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .product-stats span {
+            display: inline-block;
+            min-width: 60px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .product-actions button {
+            flex: 1;
+            padding: 8px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-cart {
+            background-color: #d7d7d7;
+            color: #333;
+            border: 1px solid #f5ddd8;
+        }
+        
+        .btn-buy {
+            background-color: #ffb9da;
+            color: #fff;
+        }
+        
+        .product-actions button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .service-tag {
+            display: inline-block;
+            background: #fff8e6;
+            border: 1px solid #ffd966;
+            color: #333;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .product-card {
+                padding: 10px;
+            }
+            
+            .product-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 - 新增Logo图片 -->
+    <div class="header">
+        <div class="logo">
+            <!-- 这里使用示例图片，实际使用时请替换为您的Logo图片 -->
+            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p8.jpg" class="logo-img">
+            <h1>54叙素</h1>
+        </div>
+        <div class="nav-links">
+            <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/shop.html">首页</a>
+            <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/54show.html">关于我们</a>
+            <a href="#">商品展示</a>
+            <a href="#">网站地图</a>
+        </div>
+    </div>
+    <div class="welcome-msg">
+        欢迎您光临54叙素！这里有最好的，品种齐全的，数量繁多的商品供您选择。
+    </div>
+    
+
+
+    
+    <!-- 页面主体 -->
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3>商品分类</h3>
+                <div class="sidebar-links">
+     
+                    <a href="#">女装上衣</a>
+                    <a href="#">女装裤子</a>
+                    <a href="#">首饰</a>
+                    <a href="#">香包</a> 
+<a href="#">热卖商品</a>
+            <a href="#">购物车</a>
+            <a href="#">我的订单</a>
+            <a href="#">收藏夹</a>
+                </div>
+            </div>
+
+             <div class="sidebar-section">
+                <h3>网站链接</h3>
+                <div class="sidebar-links">
+                    <a href="http://www.taobao.com" class="external" target="_blank">淘宝网</a>
+                    <a href="https://weidian.com/?userid=1619834956&share_relation=bf00fb0e247b5755_1959340216_1&wfr=BuyercopyURL" class="external" target="_blank">微店</a>
+                    <a href="https://weidian.com/?userid=1619834956&share_relation=bf00fb0e247b5755_1959340216_1&wfr=BuyercopyURL" class="external" target="_blank">微店</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>收藏排行</h3>
+                <div class="sidebar-links">
+                    <a href="#">收藏排行榜</a>
+                    <a href="#">购买排行榜</a>
+                    <a href="#">会员排行榜</a>
+                </div>
+            </div>
+        </div>
+<!-- 主要内容区域 - 商品展示为主体 -->
+        <div class="main-content">
+            <h2 class="main-title">商品展示</h2>
+            
+            <div class="product-grid">
+                <!-- 产品1 -->
+                <div class="product-card">
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p2.jpg" alt="时尚连衣裙" class="product-image">
+                    <h3 class="product-title">2025夏季新款时尚连衣裙女中长款收腰显瘦气质雪纺裙子</h3>
+                    <div class="product-price">¥299</div>
+                    <div class="product-stats">
+                        <span>月销量: 1234</span>
+                        <span>收藏数: 1234</span>
+                        <span>库存: 充足</span>
+                    </div>
+                    <div class="product-stats">
+                        <span>山东青岛</span>
+                        <span>快递: 免运费</span>
+                    </div>
+                    <div class="service-tag">七天无理由退换</div>
+                    <div class="product-actions">
+                        <button class="btn-cart">加入购物车</button>
+                        <button class="btn-buy">立即购买</button>
+                    </div>
+                </div>
+                
+                <!-- 产品2 -->
+                <div class="product-card">
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p3.jpg" alt="高腰牛仔裤" class="product-image">
+                    <h3 class="product-title">高腰牛仔裤女2025春秋新款显瘦显高小脚铅笔裤</h3>
+                    <div class="product-price">¥399</div>
+                    <div class="product-stats">
+                        <span>月销量: 2567</span>
+                        <span>收藏数: 2567</span>
+                        <span>库存: 充足</span>
+                    </div>
+                    <div class="product-stats">
+                        <span>山东济南</span>
+                        <span>快递: 免运费</span>
+                    </div>
+                    <div class="service-tag">正品保障</div>
+                    <div class="product-actions">
+                        <button class="btn-cart">加入购物车</button>
+                        <button class="btn-buy">立即购买</button>
+                    </div>
+                </div>
+                
+                <!-- 产品3 -->
+                <div class="product-card">
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p4.jpg" alt="夏季雪纺衫" class="product-image">
+                    <h3 class="product-title">夏季新款雪纺衫女短袖宽松遮肉洋气上衣</h3>
+                    <div class="product-price">¥199</div>
+                    <div class="product-stats">
+                        <span>月销量: 890</span>
+                        <span>收藏数: 890</span>
+                        <span>库存: 充足</span>
+                    </div>
+                    <div class="product-stats">
+                        <span>山东聊城</span>
+                        <span>快递: 免运费</span>
+                    </div>
+                    <div class="service-tag">极速发货</div>
+                    <div class="product-actions">
+                        <button class="btn-cart">加入购物车</button>
+                        <button class="btn-buy">立即购买</button>
+                    </div>
+                </div>
+                
+                <!-- 更多产品... -->
+                <div class="product-card">
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p6.jpg" alt="新款T恤" class="product-image">
+                    <h3 class="product-title">2025夏季新款纯棉T恤女宽松百搭圆领短袖</h3>
+                    <div class="product-price">¥129</div>
+                    <div class="product-stats">
+                        <span>月销量: 3210</span>
+                        <span>收藏数: 1987</span>
+                        <span>库存: 充足</span>
+                    </div>
+                    <div class="product-stats">
+                        <span>山东青岛</span>
+                        <span>快递: 免运费</span>
+                    </div>
+                    <div class="service-tag">正品保障</div>
+                    <div class="product-actions">
+                        <button class="btn-cart">加入购物车</button>
+                        <button class="btn-buy">立即购买</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p7.jpg" alt="百搭半身裙" class="product-image">
+                    <h3 class="product-title">高腰百搭半身裙女2025夏季新款A字裙</h3>
+                    <div class="product-price">¥259</div>
+                    <div class="product-stats">
+                        <span>月销量: 1567</span>
+                        <span>收藏数: 1234</span>
+                        <span>库存: 充足</span>
+                    </div>
+                    <div class="product-stats">
+                        <span>山东济南</span>
+                        <span>快递: 免运费</span>
+                    </div>
+                    <div class="service-tag">七天无理由退换</div>
+                    <div class="product-actions">
+                        <button class="btn-cart">加入购物车</button>
+                        <button class="btn-buy">立即购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            <div class="sidebar-section">
+                <h3>热卖推荐</h3>
+                <div class="sidebar-links">
+                    <a href="#">时尚连衣裙</a>
+                    <a href="#">高腰牛仔裤</a>
+                    <a href="#">夏季雪纺衫</a>
+                    <a href="#">新款T恤</a>
+                    <a href="#">百搭半身裙</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>特色服务</h3>
+                <div class="sidebar-links">
+                    <a href="#">七天无理由退换</a>
+                    <a href="#">正品保障</a>
+                    <a href="#">极速发货</a>
+                    <a href="#">售后无忧</a>
+                </div>
+            </div>
+        </div>
+        
+        
