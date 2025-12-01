@@ -1,140 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自由买卖购物网站</title>
+    <title>54叙素</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: "Microsoft YaHei", sans-serif;
         }
         
         body {
-            background-color: #ffffff;
+            background-color: #fff7fb;
             color: #333;
+            line-height: 1.6;
         }
         
-        /* 顶部导航栏样式 */
+           /* 顶部导航栏样式 - 修改版 */
         .header {
-            background-color: #e6f2ff;
+            background-color:#f9e0ec;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .nav-links {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+            .nav-links {
             display: flex;
             gap: 20px;
         }
         
         .nav-links a {
-            color: #000;
+            color: #333;
             text-decoration: none;
             font-weight: bold;
+            font-size: 14px;
         }
         
         .welcome-msg {
-            background-color: #ffffe0;
-            padding: 10px;
+            background-color: #fff8e6;
+            padding: 8px 0;
             text-align: center;
-            width: 100%;
-            margin-top: 10px;
+            font-size: 12px;
+            border-bottom: 1px solid #ffd966;
         }
-        
-        /* 主体布局 */
+
+    
+
+        /* 页面主体布局 */
         .container {
             display: flex;
-            margin: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
+        
         
         /* 侧边栏样式 */
         .sidebar {
-            width: 25%;
-            padding: 20px;
+            width: 200px;
             background-color: #f9f9f9;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid #eee;
+            padding: 20px 0;
+            height: 100%;
         }
         
         .sidebar-section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            padding: 0 15px;
         }
         
         .sidebar-section h3 {
-            border-bottom: 2px solid #4169e1;
-            padding-bottom: 5px;
+            color: #333;
+            font-size: 14px;
             margin-bottom: 10px;
-            color: #000;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
         }
         
         .sidebar-links a {
             display: block;
-            color: #000;
+            color: #666;
             text-decoration: none;
-            margin-bottom: 5px;
             padding: 5px 0;
+            font-size: 12px;
+            transition: color 0.3s;
         }
         
-        .sidebar-links a.external {
-            color: #1e90ff;
+        .sidebar-links a:hover {
+            color: #ff5000;
         }
         
         /* 主要内容区域样式 */
         .main-content {
-            width: 75%;
+            flex: 1;
             padding: 20px;
+            position: relative;
         }
         
         .main-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #00008b;
-            margin-bottom: 30px;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
         
         .main-title span {
-            color: #000;
+            color: #999;
+            font-size: 14px;
+            margin-left: 10px;
         }
         
-        /* 关于我们内容样式 */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
+        
+        /* 内容区域调整 */
+        .content-container {
+            display: flex;
+            gap: 20px;
         }
         
-        .founder, .goal {
-            margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .user-blog {
+            width: 40%;
         }
         
-        .founder h2 {
-            color: #00008B;
+        .product-showcase {
+            width: 60%;
         }
         
-        .founder img {
-            width: 200px;
-            height: 200px;
+        /* 模块边框样式 */
+        .module-box {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        
+        /* 博客内容样式 */
+        .blog-post img {
             border-radius: 50%;
-            object-fit: cover;
+            width: 50px;
+            height: 50px;
             float: left;
-            margin-right: 20px;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-right: 10px;
         }
         
-        .goal h2 {
-            color: #008080;
+        .blog-post h3 {
+            margin-bottom: 5px;
         }
         
-        .goal-list {
-            list-style-type: decimal;
-            padding-left: 20px;
+        /* 评论区样式 */
+        .comment, .reply {
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .comment img, .reply img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-right: 10px;
+        }
+        
+        .replies {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        
+        .comment-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        /* 产品卡片样式 */
+        .product-card {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+        }
+        
+        .product-image-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .product-image-container img {
+            width: 100%;
+            height: 160px; /* 缩小产品图片高度 */
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .product-status-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.9);
+            padding: 6px;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .product-info {
+            text-align: center;
+        }
+        
+        .product-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .product-info a {
+            display: block;
+            margin: 8px 0;
+            color: #1e90ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .product-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 0.85rem;
+            padding: 0 5px;
         }
         
         .clearfix::after {
@@ -158,41 +281,76 @@
             .main-content {
                 width: 100%;
             }
+            
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .user-blog, .product-showcase {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 10px;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .main-title span {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 顶部导航栏 -->
+      <!-- 顶部导航栏 - 新增Logo图片 -->
     <div class="header">
         <div class="logo">
-            <h1>自由买卖</h1>
+            <!-- 这里使用示例图片，实际使用时请替换为您的Logo图片 -->
+            https://zhangkaiyue-lyf.github.io/ljywebjob/p8.jpg" class="logo-img">
+            <h1>54叙素</h1>
         </div>
         <div class="nav-links">
+            <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/shop.html">首页</a>
             <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/54show.html">关于我们</a>
             <a href="#">商品展示</a>
             <a href="#">网站地图</a>
         </div>
     </div>
     <div class="welcome-msg">
-        欢迎您光临自由买卖！这里有最好的，品种齐全的，数量繁多的商品供您选择。
+        欢迎您光临54叙素！这里有最好的，品种齐全的，数量繁多的商品供您选择。
     </div>
+
     
-    <!-- 页面主体 -->
+     <!-- 页面主体 -->
     <div class="container">
         <!-- 侧边栏 -->
         <div class="sidebar">
             <div class="sidebar-section">
-                <h3>网站导航</h3>
+                <h3>商品分类</h3>
                 <div class="sidebar-links">
-                    <a href="#">首页</a>
+     
                     <a href="#">女装上衣</a>
                     <a href="#">女装裤子</a>
                     <a href="#">首饰</a>
-                    <a href="#">香包</a>
+                    <a href="#">香包</a> 
+<a href="#">热卖商品</a>
+            <a href="#">购物车</a>
+            <a href="#">我的订单</a>
+            <a href="#">收藏夹</a>
                 </div>
             </div>
-            
-            <div class="sidebar-section">
+
+             <div class="sidebar-section">
                 <h3>网站链接</h3>
                 <div class="sidebar-links">
                     <a href="http://www.taobao.com" class="external" target="_blank">淘宝网</a>
@@ -210,99 +368,64 @@
                 </div>
             </div>
         </div>
-        
-<!-- 主要内容区域 -->
+
+        <!-- 主要内容区域 -->
         <div class="main-content">
-            <h2 class="main-title">自由买卖<span>！自由买卖2080 自由买卖！</span></h2>
+            <h2 class="main-title">54叙素<span>！给予你更好的生活！</span></h2>
             
-            <div class="content-container" style="display: flex;">
-                <!-- 用户博客模块（左侧） -->
-                <div class="user-blog" style="width: 45%; margin-right: 10px; border: 2px dashed #ff69b4; border-radius: 15px; padding: 15px;">
-                    <h3>用户博客</h3>
-                    <div class="blog-post">
-                        <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="用户头像" style="border-radius: 50%; width: 50px; height: 50px; float: left; margin-right: 10px;">
-                        <h3>夏季时尚穿搭指南</h3>
-                        <p>最新款连衣裙搭配高腰牛仔裤，打造完美夏日造型。轻盈雪纺衫搭配半身裙，既时尚又舒适，适合各种场合穿着。</p>
+            <div class="content-container">
+                <!-- 用户博客模块 -->
+                <div class="user-blog">
+                    <div class="module-box">
+                        <div class="status-bar">
+                            <span>博客 • 发布时间：2025-12-01</span>
+                            <span>浏览数：258</span>
+                        </div>
+                        <h3>用户博客</h3>
+                        <div class="blog-post clearfix">
+                            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="用户头像">
+                            <div>
+                                <h3>夏季时尚穿搭指南</h3>
+                                <p>最新款连衣裙搭配高腰牛仔裤，打造完美夏日造型。轻盈雪纺衫搭配半身裙，既时尚又舒适，适合各种场合穿着。</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <!-- 推特风格评论区 -->
-                    <div class="comments-section">
-                        <div class="comment">
-                            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="评论头像" style="border-radius: 50%; width: 30px; height: 30px; float: left; margin-right: 10px;">
-                            <div class="comment-content">
-                                <strong>用户1</strong>
-                                <p>这套搭配太适合夏天了！</p>
-                                <div class="comment-meta">
-                                    <span>2小时前</span>
-                                    <span>回复</span>
-                                    <span>点赞</span>
-                                </div>
-                                
-                                <!-- 回复 -->
-                                <div class="reply" style="margin-left: 40px; margin-top: 10px;">
-                                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="回复头像" style="border-radius: 50%; width: 25px; height: 25px; float: left; margin-right: 5px;">
-                                    <div class="reply-content">
-                                        <strong>用户4</strong>
-                                        <p>确实，我已经买了连衣裙，质量很好！</p>
-                                        <div class="comment-meta">
-                                            <span>1小时前</span>
-                                            <span>回复</span>
-                                            <span>点赞</span>
+                    <div class="module-box">
+                        <h3>用户评论</h3>
+                        <div class="comments-section">
+                            <div class="comment">
+                                <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="用户头像">
+                                <div>
+                                    <strong>用户1</strong>
+                                    <p>这套搭配太适合夏天了！</p>
+                                    <div class="comment-meta">
+                                        <span>2小时前</span>
+                                        <span>回复</span>
+                                        <span>点赞</span>
+                                    </div>
+                                    
+                                    <div class="replies">
+                                        <div class="reply">
+                                            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="用户头像">
+                                            <div>
+                                                <strong>用户2</strong>
+                                                <p>确实，我已经入手了连衣裙，质量很好！</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="comment">
-                            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="评论头像" style="border-radius: 50%; width: 30px; height: 30px; float: left; margin-right: 10px;">
-                            <div class="comment-content">
-                                <strong>用户2</strong>
-                                <p>已经入手连衣裙，质量很好！</p>
-                                <div class="comment-meta">
-                                    <span>5小时前</span>
-                                    <span>回复</span>
-                                    <span>点赞</span>
-                                </div>
-                                
-                                <!-- 回复 -->
-                                <div class="reply" style="margin-left: 40px; margin-top: 10px;">
-                                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="回复头像" style="border-radius: 50%; width: 25px; height: 25px; float: left; margin-right: 5px;">
-                                    <div class="reply-content">
-                                        <strong>用户5</strong>
-                                        <p>求问尺码是否标准？</p>
-                                        <div class="comment-meta">
-                                            <span>3小时前</span>
-                                            <span>回复</span>
-                                            <span>点赞</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="comment">
-                            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="评论头像" style="border-radius: 50%; width: 30px; height: 30px; float: left; margin-right: 10px;">
-                            <div class="comment-content">
-                                <strong>用户3</strong>
-                                <p>雪纺衫颜色很显白，推荐购买！</p>
-                                <div class="comment-meta">
-                                    <span>1天前</span>
-                                    <span>回复</span>
-                                    <span>点赞</span>
-                                </div>
-                                
-                                <!-- 回复 -->
-                                <div class="reply" style="margin-left: 40px; margin-top: 10px;">
-                                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="回复头像" style="border-radius: 50%; width: 25px; height: 25px; float: left; margin-right: 5px;">
-                                    <div class="reply-content">
-                                        <strong>用户6</strong>
-                                        <p>是的，我买了白色款，很百搭！</p>
-                                        <div class="comment-meta">
-                                            <span>12小时前</span>
-                                            <span>回复</span>
-                                            <span>点赞</span>
-                                        </div>
+                            
+                            <div class="comment">
+                                <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p1.png" alt="用户头像">
+                                <div>
+                                    <strong>用户3</strong>
+                                    <p>雪纺衫颜色很显白，推荐购买！</p>
+                                    <div class="comment-meta">
+                                        <span>5小时前</span>
+                                        <span>回复</span>
+                                        <span>点赞</span>
                                     </div>
                                 </div>
                             </div>
@@ -310,44 +433,76 @@
                     </div>
                 </div>
                 
-                <!-- 产品展示模块（右侧） -->
-                <div class="product-showcase" style="width: 55%; border: 2px solid #87ceeb; border-radius: 15px; padding: 15px;">
-                    <h3>产品展示</h3>
-                    <div class="product-card">
-                        <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p2.jpg" alt="时尚连衣裙" style="width: 100%; height: auto; border: 3px solid #87ceeb;">
-                        <div class="product-info">
-                            <h4>时尚连衣裙</h4>
-                            <a href="#">查看详情</a>
-                            <div class="product-stats">
-                                <span>浏览数 (158923)</span>
-                                <span>评论数 (126)</span>
+                <!-- 产品展示模块 -->
+                <div class="product-showcase">
+                    <div class="module-box">
+                        <div class="status-bar">
+                            <span>产品展示 • 更新时间：2025-12-01</span>
+                            <span>总浏览数：550,000+</span>
+                        </div>
+                        
+                        <h3>产品展示</h3>
+                        
+                        <div class="product-card">
+                            <div class="product-image-container">
+                                <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p2.jpg" alt="时尚连衣裙">
+                                <div class="product-status-bar">
+                                    <span>时尚连衣裙</span>
+                                    <span>¥299</span>
+                                    <span>收藏数：1,234</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>时尚连衣裙</h4>
+                                <a href="#">查看详情</a>
+                                <div class="product-stats">
+                                    <span>浏览数 (158,923)</span>
+                                    <span>评论数 (126)</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p3.jpg" alt="高腰牛仔裤" style="width: 100%; height: auto; border: 3px solid #87ceeb;">
-                        <div class="product-info">
-                            <h4>高腰牛仔裤</h4>
-                            <a href="#">查看详情</a>
-                            <div class="product-stats">
-                                <span>浏览数 (203456)</span>
-                                <span>评论数 (89)</span>
+                        
+                        <div class="product-card">
+                            <div class="product-image-container">
+                                <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p4.jpg" alt="高腰牛仔裤">
+                                <div class="product-status-bar">
+                                    <span>高腰牛仔裤</span>
+                                    <span>¥399</span>
+                                    <span>收藏数：2,567</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>高腰牛仔裤</h4>
+                                <a href="#">查看详情</a>
+                                <div class="product-stats">
+                                    <span>浏览数 (203,456)</span>
+                                    <span>评论数 (89)</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p4.jpg" alt="夏季雪纺衫" style="width: 100%; height: auto; border: 3px solid #87ceeb;">
-                        <div class="product-info">
-                            <h4>夏季雪纺衫</h4>
-                            <a href="#">查看详情</a>
-                            <div class="product-stats">
-                                <span>浏览数 (187654)</span>
-                                <span>评论数 (78)</span>
+                        
+                        <div class="product-card">
+                            <div class="product-image-container">
+                                <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p3.jpg" alt="夏季雪纺衫">
+                                <div class="product-status-bar">
+                                    <span>夏季雪纺衫</span>
+                                    <span>¥199</span>
+                                    <span>收藏数：890</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h4>夏季雪纺衫</h4>
+                                <a href="#">查看详情</a>
+                                <div class="product-stats">
+                                    <span>浏览数 (187,654)</span>
+                                    <span>评论数 (78)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</body>
+</html>
