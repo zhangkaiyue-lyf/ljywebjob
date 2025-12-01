@@ -83,7 +83,74 @@
             border-bottom: 1px solid #ffd966;
         }
 
-    
+    /* 新增元素容器 */  
+        .nav-right {  
+            display: flex;  
+            align-items: center;  
+            gap: 15px;  
+        }  
+          
+        /* 播放器样式 */  
+        .audio-player {  
+            display: flex;  
+            align-items: center;  
+            gap: 5px;  
+        }  
+          
+        /* 搜索框样式 */  
+        .search-box {  
+            display: flex;  
+            align-items: center;  
+        }  
+          
+        .search-box input {  
+            padding: 5px 10px;  
+            border: 1px solid #ddd;  
+            border-radius: 15px;  
+            font-size: 12px;  
+            width: 150px;  
+        }  
+          
+        .search-box button {  
+            background: none;  
+            border: none;  
+            cursor: pointer;  
+            padding: 5px;  
+        }  
+          
+        /* 头像样式 */  
+        .user-avatar {  
+            width: 35px;  
+            height: 35px;  
+            border-radius: 50%;  
+            object-fit: cover;  
+            border: 2px solid #fff;  
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);  
+        }  
+          
+        .nav-links {  
+            display: flex;  
+            gap: 20px;  
+        }  
+          
+        .nav-links a {  
+            color: #333;  
+            text-decoration: none;  
+            font-weight: bold;  
+            font-size: 14px;  
+        }  
+          
+        .welcome-msg {  
+            background-color: #fff8e6;  
+            padding: 8px 0;  
+            text-align: center;  
+            font-size: 12px;  
+            border-bottom: 1px solid #ffd966;  
+        }  
+  
+         
+
+
 
         /* 页面主体布局 */
         .container {
@@ -281,7 +348,33 @@
         <div class="logo">
             <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p8.jpg" class="logo-img">
             <h1>54叙素</h1>
-        </div>
+        </div><!-- 新增右侧元素 -->  
+        <div class="nav-right">  
+            <!-- 播放器 -->  
+            <div class="audio-player">  
+                <audio id="bgMusic" autoplay loop>  
+                    <source src="https://zhangkaiyue-lyf.github.io/ljywebjob/12月1日.MP3" type="audio/mpeg">  
+                    
+                </audio>  
+                <button id="playBtn" onclick="togglePlay()">  
+                    <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p9.png" style="width:20px;height:20px;">  
+                </button>  
+            </div>  
+              
+            <!-- 搜索框 -->  
+            <div class="search-box">  
+                <input type="text" placeholder="搜索商品...">  
+                <button>  
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">  
+                        <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>  
+                    </svg>  
+                </button>  
+            </div>  
+              
+            <!-- 头像 -->  
+            <img src="https://zhangkaiyue-lyf.github.io/ljywebjob/p8.jpg" class="user-avatar">  
+        </div>  
+
         <div class="nav-links">
             <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/shop.html">首页</a>
             <a href="https://zhangkaiyue-lyf.github.io/ljywebjob/54show.html">关于我们</a>
